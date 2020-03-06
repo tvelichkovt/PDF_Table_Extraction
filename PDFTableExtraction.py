@@ -1,2 +1,2 @@
-import os
-from setuptools import find_packages
+#pip install camelot,click;matplotlib;numpy;opencv-python;openpyxl;pandas;pdfminer.six;PyPDF2
+

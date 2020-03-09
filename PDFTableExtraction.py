@@ -4,7 +4,7 @@ import tabula
 from tabula import read_pdf
 
 #1. Local fetch
-pdf_path = 'sample_table.pdf' #local patch
+pdf_path = 'bgregistryagency3pages.pdf' #local patch
 tabula.read_pdf(pdf_path, pages="all", stream=True) #all pages
 
 #tabula.read_pdf(pdf_path, pages="1", stream=True) #specific pages

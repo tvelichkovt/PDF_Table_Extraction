@@ -1,32 +1,23 @@
 #https://drive.google.com/drive/folders/1xjutthFIQ137VYSiDXBX6YtMUkt2sRoO
 
-#pip install tabula-py
-#pip install -q tabula-py
-
-#be carefil with JAVA path, C:\Program Files (x86)\Java\jre1.8.0_241\bin ; "https://www.java.com/en/download/help/path.xml"
-
 import tabula
 from tabula import read_pdf
 
-#link fetch
-pdf_path = "https://github.com/chezou/tabula-py/raw/master/tests/resources/data.pdf"
+#1. Local fetch
+pdf_path = 'sample_table.pdf' #local patch
+tabula.read_pdf(pdf_path, pages="all", stream=True) #all pages
 
-#local fetch
-#pdf_path = 'foo.pdf' #local patch
-
-tabula.read_pdf(pdf_path, pages="1", stream=True) #specific pages
-
+#tabula.read_pdf(pdf_path, pages="1", stream=True) #specific pages
 #tabula.read_pdf(pdf_path, pages=3, stream=True)[0] 
 #tabula.read_pdf(pdf_path, pages="1-2,3", stream=True) #specific pages
-#tabula.read_pdf(pdf_path, pages="all", stream=True) #all pages
+#tabula.read_pdf(pdf_path, pages="all", stream=True, output_format="json") #all pages into JSON, TSV, or CSV
+#tabula.convert_into(pdf_path, "test.json", output_format="json") ..or convert
 
 
-#read pdf as JSON, TSV, or CSV
-#tabula.read_pdf(pdf_path, output_format="json")
 
 
-#convert from pdf into JSON, CSV, TSV
-tabula.convert_into(pdf_path, "test.json", output_format="json")
+#1. Link fetch
+#pdf_path = "https://github.com/chezou/tabula-py/raw/master/tests/resources/data.pdf"
 
 import json
 

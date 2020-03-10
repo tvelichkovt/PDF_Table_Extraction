@@ -1,9 +1,12 @@
+'''
 #https://drive.google.com/drive/folders/1xjutthFIQ137VYSiDXBX6YtMUkt2sRoO
+'''
 
+# 1. Imports
 import tabula
 from tabula import read_pdf
 
-#1. Local fetch
+# 2. Local fetch
 pdf_path = 'bgregistryagency3pages.pdf' #local patch
 tabula.read_pdf(pdf_path, pages="all", stream=True) #all pages
 

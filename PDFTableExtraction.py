@@ -4,43 +4,23 @@
 
 '''
 
-# 1. Imports
+# 1. Imports & Sample Files
 import tabula
 from tabula import read_pdf
 
-# 2. Local fetch
-pdf_file = 'PDFTableExtraction small table.pdf' #local patch
-tabula.read_pdf(pdf_file, pages="all", stream=True) #all pages
-tabula.convert_into(pdf_file, "PDFTableExtraction output.csv", output_format="csv")
-pdf_file = 'PDFTableExtraction Tesla Convertable Bonds.pdf' #local patch
-tabula.read_pdf(pdf_file, pages="1", stream=True) #specific pages
-tabula.convert_into(pdf_file, "PDFTableExtraction output.json", output_format="json")
+pdf_file1 = "https://github.com/tvelichkovt/PDF_Table_Extraction/raw/master/Sample_Files/PDFTableExtraction_Small_Table.pdf"
+pdf_file2 = "https://github.com/tvelichkovt/PDF_Table_Extraction/raw/master/Sample_Files/PDFTableExtraction_Tesla_Bonds.pdf"
+pdf_file3 = "https://github.com/tvelichkovt/PDF_Table_Extraction/raw/master/Sample_Files/PDFTableExtraction_World_GDP.pdf"
+pdf_file4 = "https://databank.worldbank.org/data/download/GDP.pdf"
 
-#tabula.read_pdf(pdf_file, pages=3, stream=True)[0] 
-#tabula.read_pdf(pdf_file, pages="1-2,3", stream=True) #specific pages
-#tabula.read_pdf(pdf_file, pages="all", stream=True, output_format="json") #all pages into JSON, TSV, or CSV
-#tabula.convert_into(pdf_file, "test.json", output_format="json") ..or convert
+# 2. Read PDFs
 
-#3. www link fetch
-import tabula
-from tabula import read_pdf
+tabula.read_pdf(pdf_file1, pages="all", stream=True)[0] # read all pages
+tabula.read_pdf(pdf_file2, pages=1, stream=True)[0] # read 1 page
+tabula.read_pdf(pdf_file3, pages="1-2", stream=True)[0] #specific pages
 
-pdf_file_link = "http://www3.weforum.org/docs/GCR2017-2018/05FullReport/TheGlobalCompetitivenessReport2017%E2%80%932018.pdf"
-
-tabula.read_pdf(
-    pdf_file_link,
-    pages="11",
-    lattice=True,
-    pandas_options={"header": [0, 1]},
-    area=[0, 0, 50, 100],
-    relative_area=True,
-    multiple_tables=False,
-)[0]
-
-
-
-template_path = "https://github.com/chezou/tabula-py/raw/master/tests/resources/data.tabula-template.json"
-tabula.read_pdf_with_template(pdf_file_link, template_path)
+tabula.convert_into(pdf_file1, "PDFTableExtraction_Output.csv", output_format="csv") # extract into file JSON, TSV, or CSV
+tabula.convert_into(pdf_file2, "PDFTableExtraction_Output.json", output_format="json")
 
 
 
